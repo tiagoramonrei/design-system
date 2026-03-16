@@ -618,36 +618,42 @@ export default function DesignSystem() {
   };
 
   return (
-    <div className="ds-page">
-      <header
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginBottom: "var(--spacing-32)",
-        }}
-      >
-        <div>
-          <img src={theme === "dark" ? logoPitacoWhite : logoPitacoBlack} alt="Pitaco" style={{ height: 56 }} />
-          <p
+    <>
+      <div className="ds-sticky-header">
+        <div className="ds-sticky-header__inner">
+          <header
             style={{
-              fontSize: "var(--font-size-14)",
-              color: "var(--text-02)",
-              marginTop: "var(--spacing-4)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: "var(--spacing-24)",
             }}
           >
-            Design System
-          </p>
+            <div>
+              <img src={theme === "dark" ? logoPitacoWhite : logoPitacoBlack} alt="Pitaco" style={{ height: 56 }} />
+              <p
+                style={{
+                  fontSize: "var(--font-size-14)",
+                  color: "var(--text-02)",
+                  marginTop: "var(--spacing-4)",
+                }}
+              >
+                Design System
+              </p>
+            </div>
+            <ThemeToggle theme={theme} onToggle={toggle} />
+          </header>
+
+          <TabBar tabs={DS_TABS} activeTab={activeTab} onTabChange={(id) => setActiveTab(id as TabId)} />
         </div>
-        <ThemeToggle theme={theme} onToggle={toggle} />
-      </header>
+      </div>
 
-      <TabBar tabs={DS_TABS} activeTab={activeTab} onTabChange={(id) => setActiveTab(id as TabId)} />
-
-      {activeTab === "colors" && <ColorsTab />}
-      {activeTab === "typography" && <TypographyTab />}
-      {activeTab === "spacing" && <SpacingTab />}
-      {activeTab === "tokens" && <TokensTab />}
-    </div>
+      <div className="ds-page ds-page--with-sticky-header">
+        {activeTab === "colors" && <ColorsTab />}
+        {activeTab === "typography" && <TypographyTab />}
+        {activeTab === "spacing" && <SpacingTab />}
+        {activeTab === "tokens" && <TokensTab />}
+      </div>
+    </>
   );
 }

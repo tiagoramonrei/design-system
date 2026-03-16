@@ -48,10 +48,28 @@ pre {
    DS PAGE TOKENS  (utility classes for the DS showcase)
    ============================================================ */
 
+.ds-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--background);
+  transition: background 0.25s ease;
+}
+
+.ds-sticky-header__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--spacing-32) var(--spacing-48) 0;
+}
+
 .ds-page {
   max-width: 1280px;
   margin: 0 auto;
   padding: var(--spacing-64) var(--spacing-48);
+}
+
+.ds-page--with-sticky-header {
+  padding-top: var(--spacing-48);
 }
 
 .ds-section {
