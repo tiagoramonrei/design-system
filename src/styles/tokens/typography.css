@@ -1,0 +1,50 @@
+/* ============================================================
+   TYPOGRAPHY TOKENS
+   Primitivas e semanticos de tipografia.
+   ============================================================ */
+
+:root {
+  /* --------------------------------------------------
+     Font Family  (primitivas)
+     -------------------------------------------------- */
+  --font-family-display: "Red Hat Display", system-ui, sans-serif;
+  --font-family-mono: "Fira Code", ui-monospace, monospace;
+
+  /* --------------------------------------------------
+     Font Weight  (primitivas)
+     -------------------------------------------------- */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* --------------------------------------------------
+     Font Size  (primitivas)
+     -------------------------------------------------- */
+  --font-size-8: 8px;
+  --font-size-10: 10px;
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  --font-size-32: 32px;
+  --font-size-40: 40px;
+  --font-size-48: 48px;
+  --font-size-56: 56px;
+  --font-size-64: 64px;
+  --font-size-72: 72px;
+  --font-size-80: 80px;
+
+  /* --------------------------------------------------
+     Line Height  (primitivas)
+     -------------------------------------------------- */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+
+  /* --------------------------------------------------
+     Semanticos
+     -------------------------------------------------- */
+  --mono-font: var(--font-family-mono);
+}

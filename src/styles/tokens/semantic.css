@@ -1,0 +1,98 @@
+/* ============================================================
+   SEMANTIC TOKENS
+   Tokens de uso no produto, com variantes Light e Dark.
+   Referem-se as primitivas quando possivel.
+   ============================================================ */
+
+/* ---------- LIGHT (default) ---------- */
+:root,
+[data-theme="light"] {
+  /* Background */
+  --background: var(--lightdark-15);
+  --background-inverse: var(--lightdark-850);
+  --background-border: var(--lightdark-50);
+  --background-gradient-header-01: var(--brand-purple-400);
+  --background-gradient-header-02: var(--brand-violet-400);
+  --background-on-color-light: var(--lightdark-15);
+  --background-on-color-dark: var(--lightdark-850);
+
+  /* Layer */
+  --layer-01: var(--lightdark-0);
+  --layer-02: var(--lightdark-25);
+  --layer-03: var(--lightdark-50);
+  --layer-04: var(--green-300);
+  --layer-gradient-01: var(--brand-purple-400);
+  --layer-gradient-02: var(--brand-violet-400);
+
+  /* Border */
+  --border-01: var(--lightdark-25);
+  --border-02: var(--lightdark-50);
+  --border-03: var(--lightdark-100);
+  --border-active: var(--green-300);
+  --border-gradient-01: var(--brand-purple-400);
+  --border-gradient-02: var(--brand-violet-400);
+
+  /* Text */
+  --text-01: var(--lightdark-900);
+  --text-02: var(--lightdark-400);
+  --text-03: var(--green-300);
+  --text-04: var(--yellow-300);
+  --text-inverse: var(--lightdark-0);
+  --text-on-color-white: var(--lightdark-0);
+  --text-on-color-black: var(--lightdark-900);
+
+  /* Button */
+  --button-primary-gradient-01: var(--brand-purple-400);
+  --button-primary-gradient-02: var(--brand-violet-400);
+  --button-secondary: var(--green-300);
+  --button-odds-01: var(--lightdark-0);
+  --button-odds-02: var(--lightdark-25);
+  --button-odds-selected-01: var(--lime-300);
+  --button-odds-selected-02: var(--cyan-300);
+}
+
+/* ---------- DARK ---------- */
+[data-theme="dark"] {
+  /* Background */
+  --background: var(--lightdark-850);
+  --background-inverse: var(--lightdark-15);
+  --background-border: var(--lightdark-700);
+  --background-gradient-header-01: var(--brand-purple-400);
+  --background-gradient-header-02: var(--brand-violet-400);
+  --background-on-color-light: var(--lightdark-15);
+  --background-on-color-dark: var(--lightdark-850);
+
+  /* Layer */
+  --layer-01: var(--lightdark-800);
+  --layer-02: var(--lightdark-700);
+  --layer-03: var(--lightdark-600);
+  --layer-04: var(--green-300);
+  --layer-gradient-01: var(--brand-purple-400);
+  --layer-gradient-02: var(--brand-violet-400);
+
+  /* Border */
+  --border-01: var(--lightdark-800);
+  --border-02: var(--lightdark-700);
+  --border-03: var(--lightdark-600);
+  --border-active: var(--green-300);
+  --border-gradient-01: var(--brand-purple-400);
+  --border-gradient-02: var(--brand-violet-400);
+
+  /* Text */
+  --text-01: var(--lightdark-0);
+  --text-02: var(--lightdark-200);
+  --text-03: var(--green-300);
+  --text-04: var(--yellow-300);
+  --text-inverse: var(--lightdark-900);
+  --text-on-color-white: var(--lightdark-0);
+  --text-on-color-black: var(--lightdark-900);
+
+  /* Button */
+  --button-primary-gradient-01: var(--brand-purple-400);
+  --button-primary-gradient-02: var(--brand-violet-400);
+  --button-secondary: var(--green-300);
+  --button-odds-01: var(--lightdark-800);
+  --button-odds-02: var(--lightdark-700);
+  --button-odds-selected-01: var(--lime-300);
+  --button-odds-selected-02: var(--cyan-300);
+}

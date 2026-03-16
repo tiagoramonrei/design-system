@@ -1,0 +1,82 @@
+@import "./tokens/primitives.css";
+@import "./tokens/semantic.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-family-display);
+  background: var(--background);
+  color: var(--text-01);
+  line-height: var(--line-height-normal);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+code,
+pre {
+  font-family: var(--mono-font);
+}
+
+/* ============================================================
+   DS PAGE TOKENS  (utility classes for the DS showcase)
+   ============================================================ */
+
+.ds-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--spacing-64) var(--spacing-48);
+}
+
+.ds-section {
+  margin-bottom: var(--spacing-80);
+}
+
+.ds-section:last-child {
+  margin-bottom: 0;
+}
+
+.ds-section__title {
+  font-size: var(--font-size-40);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-12);
+}
+
+.ds-section__subtitle {
+  font-size: var(--font-size-16);
+  color: var(--text-02);
+  margin-bottom: var(--spacing-40);
+  max-width: 640px;
+}
+
+.ds-divider {
+  border: none;
+  border-top: 1px solid var(--background-border);
+  margin: var(--spacing-64) 0;
+}

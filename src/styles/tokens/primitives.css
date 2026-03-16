@@ -1,0 +1,139 @@
+/* ============================================================
+   PRIMITIVE COLOR SCALES
+   Escalas brutas -- servem de base para os tokens semanticos.
+   Naming: --{scale}-{step}
+   ============================================================ */
+
+:root {
+  /* --------------------------------------------------
+     Brand Violet
+     -------------------------------------------------- */
+  --brand-violet-25: #EBE5FF;
+  --brand-violet-50: #CBBCFF;
+  --brand-violet-100: #AB95FF;
+  --brand-violet-200: #8B6EFF;
+  --brand-violet-300: #6B47FF;
+  --brand-violet-400: #4B20FF;
+  --brand-violet-500: #3D18D2;
+  --brand-violet-600: #2F12A4;
+  --brand-violet-700: #210C76;
+  --brand-violet-800: #130648;
+  --brand-violet-900: #05001A;
+
+  /* --------------------------------------------------
+     Brand Purple
+     -------------------------------------------------- */
+  --brand-purple-25: #F2E5FF;
+  --brand-purple-50: #DFC0FF;
+  --brand-purple-100: #CD9CFF;
+  --brand-purple-200: #BB78FF;
+  --brand-purple-300: #A954FF;
+  --brand-purple-400: #9730FF;
+  --brand-purple-500: #7D28D2;
+  --brand-purple-600: #611EA4;
+  --brand-purple-700: #451476;
+  --brand-purple-800: #290A48;
+  --brand-purple-900: #0D001A;
+
+  /* --------------------------------------------------
+     LightDark  (neutros)
+     Ancoras: 0, 25, 50, 600, 700, 800
+     Interpolados: 100-500 (linear 50→600), 900 (terminal)
+     -------------------------------------------------- */
+  --lightdark-0: #FFFFFF;
+  --lightdark-15: #F3F3F3;
+  --lightdark-25: #F1F1F1;
+  --lightdark-50: #E3E3E3;
+  --lightdark-100: #C6C6C6;
+  --lightdark-200: #A8A8A8;
+  --lightdark-300: #8B8B8B;
+  --lightdark-400: #6E6E6E;
+  --lightdark-500: #505050;
+  --lightdark-600: #333333;
+  --lightdark-700: #202020;
+  --lightdark-800: #1A1A1A;
+  --lightdark-850: #131313;
+  --lightdark-900: #000000;
+
+  /* --------------------------------------------------
+     Green  (Success)
+     -------------------------------------------------- */
+  --green-25: #F0FDF4;
+  --green-50: #DCFCE7;
+  --green-100: #BBF7D0;
+  --green-200: #86EFAC;
+  --green-300: #4ADE80;
+  --green-400: #22C55E;
+  --green-500: #16A34A;
+  --green-600: #15803D;
+  --green-700: #166534;
+  --green-800: #14532D;
+  --green-900: #052E16;
+
+  /* --------------------------------------------------
+     Yellow  (Warning)
+     -------------------------------------------------- */
+  --yellow-25: #FEFCE8;
+  --yellow-50: #FEF9C3;
+  --yellow-100: #FEF08A;
+  --yellow-200: #FDE047;
+  --yellow-300: #FACC15;
+  --yellow-400: #EAB308;
+  --yellow-500: #CA8A04;
+  --yellow-600: #A16207;
+  --yellow-700: #854D0E;
+  --yellow-800: #713F12;
+  --yellow-900: #422006;
+
+  /* --------------------------------------------------
+     Red  (Error)
+     800 corrigido: era duplicado do 900
+     -------------------------------------------------- */
+  --red-25: #FEF2F2;
+  --red-50: #FEE2E2;
+  --red-100: #FECACA;
+  --red-200: #FCA5A5;
+  --red-300: #F87171;
+  --red-400: #EF4444;
+  --red-500: #DC2626;
+  --red-600: #B91C1C;
+  --red-700: #991B1B;
+  --red-800: #7F1D1D;
+  --red-900: #450A0A;
+
+  /* --------------------------------------------------
+     Lime  (Accent)
+     Mini escala centrada em #D2FF72
+     -------------------------------------------------- */
+  --lime-100: #F0FFD6;
+  --lime-200: #E1FFA4;
+  --lime-300: #D2FF72;
+  --lime-400: #B8E650;
+  --lime-500: #9ECC30;
+
+  /* --------------------------------------------------
+     Cyan  (Accent)
+     Mini escala centrada em #56DEEA
+     -------------------------------------------------- */
+  --cyan-100: #D4F6FA;
+  --cyan-200: #95E9F2;
+  --cyan-300: #56DEEA;
+  --cyan-400: #3BBFCC;
+  --cyan-500: #2A9FAB;
+
+  /* --------------------------------------------------
+     Blue  (Info)
+     700 corrigido: estava truncado (#1E40A → #1E40AF)
+     -------------------------------------------------- */
+  --blue-25: #EFF6FF;
+  --blue-50: #DBEAFE;
+  --blue-100: #BFDBFE;
+  --blue-200: #93C5FD;
+  --blue-300: #60A5FA;
+  --blue-400: #3B82F6;
+  --blue-500: #2563EB;
+  --blue-600: #1D4ED8;
+  --blue-700: #1E40AF;
+  --blue-800: #1E3A8A;
+  --blue-900: #172554;
+}
