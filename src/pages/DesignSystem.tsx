@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import ColorScale from "../components/ds/ColorScale";
 import TokenTable, { type TokenRow } from "../components/ds/TokenTable";
 import ThemeToggle from "../components/ds/ThemeToggle";
@@ -610,6 +610,13 @@ function TokensTab() {
 export default function DesignSystem() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [activeTab, setActiveTab] = useState<TabId>("colors");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const toggle = () => {
     const next = theme === "light" ? "dark" : "light";
@@ -619,18 +626,27 @@ export default function DesignSystem() {
 
   return (
     <>
-      <div className="ds-sticky-header">
+      {/* Mobile restriction */}
+      <div className="ds-only-desktop">
+        <div className="ds-only-desktop__container">
+          <div className="ds-only-desktop__brand">
+            <img src={theme === "dark" ? logoPitacoWhite : logoPitacoBlack} alt="Pitaco" style={{ height: 56 }} />
+            <p className="ds-only-desktop__subtitle">Design System</p>
+          </div>
+          <div className="ds-only-desktop__message">
+            <p>Essa página foi feita apenas para ser visualizada apenas na versão desktop.</p>
+            <p>Mude a resolução para poder visualizar esse Design System.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop content */}
+      <div className={`ds-sticky-header ds-desktop-only${scrolled ? " ds-sticky-header--scrolled" : ""}`}>
         <div className="ds-sticky-header__inner">
-          <header
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: "var(--spacing-24)",
-            }}
+          <header className="ds-sticky-header__logo"
           >
             <div>
-              <img src={theme === "dark" ? logoPitacoWhite : logoPitacoBlack} alt="Pitaco" style={{ height: 56 }} />
+              <img src={theme === "dark" ? logoPitacoWhite : logoPitacoBlack} alt="Pitaco" className="ds-sticky-header__logo-img" />
               <p
                 style={{
                   fontSize: "var(--font-size-14)",
@@ -648,7 +664,7 @@ export default function DesignSystem() {
         </div>
       </div>
 
-      <div className="ds-page ds-page--with-sticky-header">
+      <div className="ds-page ds-page--with-sticky-header ds-desktop-only">
         {activeTab === "colors" && <ColorsTab />}
         {activeTab === "typography" && <TypographyTab />}
         {activeTab === "spacing" && <SpacingTab />}

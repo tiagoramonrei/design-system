@@ -16,7 +16,6 @@ export default function TabBar({ tabs, activeTab, onTabChange }: TabBarProps) {
         display: "flex",
         gap: 0,
         borderBottom: "1px solid var(--background-border)",
-        marginBottom: "var(--spacing-64)",
       }}
     >
       {tabs.map((tab) => {
