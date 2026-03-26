@@ -1017,9 +1017,13 @@ function ComponentsTab() {
    ========================================================== */
 
 export default function DesignSystem() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [activeTab, setActiveTab] = useState<TabId>("colors");
   const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
