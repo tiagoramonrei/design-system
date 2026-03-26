@@ -1,0 +1,59 @@
+/* ============================================================
+   ButtonOddEscadinha
+   CTA para adicionar/remover selecao do bilhete (escadinha).
+   Props: type (color01 | color02 | selected)
+   ============================================================ */
+
+.button-odd-escadinha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 227px;
+  padding: 0 var(--spacing-8);
+  border: none;
+  border-radius: var(--spacing-8);
+  background: var(--button-odds-01);
+  color: var(--text-01);
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* --- type: color02 --- */
+
+.button-odd-escadinha--color02 {
+  background: var(--button-odds-02);
+}
+
+/* --- type: selected --- */
+
+.button-odd-escadinha--selected {
+  border: 1px solid var(--button-odds-selected-01);
+  background-image:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--button-odds-selected-01) 16%, transparent) 0%,
+      color-mix(in srgb, var(--button-odds-selected-02) 16%, transparent) 100%
+    ),
+    linear-gradient(90deg, var(--lightdark-850) 0%, var(--lightdark-850) 100%);
+  color: var(--text-on-color-white);
+}
+
+/* --- inner elements --- */
+
+.button-odd-escadinha__txt {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  min-height: 1px;
+  font-size: var(--font-size-10);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+}

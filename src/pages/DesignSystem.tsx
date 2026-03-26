@@ -11,15 +11,31 @@ import {
   getCssVar,
   resolveSemanticTokens,
 } from "../utils/cssTokens";
+import {
+  ButtonOddDefault,
+  ButtonOnlyOdds,
+  ButtonOddEscadinha,
+  ButtonBlock,
+  OddsMercados,
+} from "../components/ui/buttonsOdd";
+import { Button } from "../components/ui/buttons";
 
-type TabId = "colors" | "typography" | "spacing" | "tokens";
+type TabId = "colors" | "typography" | "spacing" | "tokens" | "components";
 
 const DS_TABS = [
   { id: "colors" as const, label: "Colors" },
   { id: "typography" as const, label: "Typography" },
   { id: "spacing" as const, label: "Spacing" },
   { id: "tokens" as const, label: "Tokens" },
+  { id: "components" as const, label: "Componentes" },
 ];
+
+const COMPONENT_LIST = [
+  { id: "button-odds", label: "Button Odds" },
+  { id: "buttons", label: "Buttons" },
+] as const;
+
+type ComponentId = (typeof COMPONENT_LIST)[number]["id"];
 
 /* ==========================================================
    PRIMITIVE SCALE STEP DEFINITIONS
@@ -626,6 +642,377 @@ function TokensTab() {
 }
 
 /* ==========================================================
+   COMPONENTS TAB
+   ========================================================== */
+
+function ButtonOddsContent() {
+  const h3Style = { fontSize: "var(--font-size-16)", fontWeight: "var(--font-weight-bold)", color: "var(--text-01)", marginBottom: "var(--spacing-12)" } as const;
+  const labelStyle = { fontSize: "var(--font-size-14)", fontWeight: "var(--font-weight-bold)", color: "var(--text-02)", marginBottom: "var(--spacing-8)" } as const;
+  const containerStyle = { background: "var(--layer-03)", padding: "var(--spacing-24)", borderRadius: "var(--spacing-12)" } as const;
+  const badgeStyle = { fontSize: "var(--font-size-10)", color: "var(--text-02)", marginTop: "var(--spacing-4)", display: "block", textAlign: "center", fontFamily: "var(--mono-font)" } as const;
+  const itemStyle = { display: "flex", flexDirection: "column", alignItems: "center" } as const;
+
+  return (
+    <>
+      {/* ========== Seção 1: Botões de Odd Individual ========== */}
+      <section className="ds-section">
+        <h2 className="ds-section__title">Botões de Odd Individual</h2>
+        <p className="ds-section__subtitle">
+          Botões atômicos para exibição de odds. Quatro formatos: odd default,
+          only odds, escadinha e lock.
+        </p>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-32)" }}>
+          {/* Odd Default */}
+          <div>
+            <h3 style={h3Style}>Odd Default</h3>
+            <div style={{ ...containerStyle, display: "flex", gap: "var(--spacing-16)", flexWrap: "wrap" }}>
+              <div style={itemStyle}>
+                <ButtonOddDefault bgColor="color01" />
+                <span style={badgeStyle}>color01</span>
+              </div>
+              <div style={itemStyle}>
+                <ButtonOddDefault bgColor="color02" />
+                <span style={badgeStyle}>color02</span>
+              </div>
+              <div style={itemStyle}>
+                <ButtonOddDefault bgColor="selected" />
+                <span style={badgeStyle}>selected</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Only Odds */}
+          <div>
+            <h3 style={h3Style}>Only Odds</h3>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-16)" }}>
+              <div>
+                <p style={labelStyle}>Com boost</p>
+                <div style={{ ...containerStyle, display: "flex", gap: "var(--spacing-16)", flexWrap: "wrap" }}>
+                  <div style={itemStyle}>
+                    <ButtonOnlyOdds bgColor="color01" boost />
+                    <span style={badgeStyle}>color01</span>
+                  </div>
+                  <div style={itemStyle}>
+                    <ButtonOnlyOdds bgColor="color02" boost />
+                    <span style={badgeStyle}>color02</span>
+                  </div>
+                  <div style={itemStyle}>
+                    <ButtonOnlyOdds bgColor="selected" boost />
+                    <span style={badgeStyle}>selected</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p style={labelStyle}>Sem boost</p>
+                <div style={{ ...containerStyle, display: "flex", gap: "var(--spacing-16)", flexWrap: "wrap" }}>
+                  <div style={itemStyle}>
+                    <ButtonOnlyOdds bgColor="color01" boost={false} />
+                    <span style={badgeStyle}>color01</span>
+                  </div>
+                  <div style={itemStyle}>
+                    <ButtonOnlyOdds bgColor="color02" boost={false} />
+                    <span style={badgeStyle}>color02</span>
+                  </div>
+                  <div style={itemStyle}>
+                    <ButtonOnlyOdds bgColor="selected" boost={false} />
+                    <span style={badgeStyle}>selected</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Odd Escadinha */}
+          <div>
+            <h3 style={h3Style}>Odd Escadinha</h3>
+            <div style={{ ...containerStyle, display: "flex", flexDirection: "column", gap: "var(--spacing-12)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "var(--spacing-16)" }}>
+                <ButtonOddEscadinha bgColor="color01" />
+                <span style={{ ...badgeStyle, marginTop: 0 }}>color01</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "var(--spacing-16)" }}>
+                <ButtonOddEscadinha bgColor="color02" />
+                <span style={{ ...badgeStyle, marginTop: 0 }}>color02</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "var(--spacing-16)" }}>
+                <ButtonOddEscadinha bgColor="selected" />
+                <span style={{ ...badgeStyle, marginTop: 0 }}>selected</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Lock */}
+          <div>
+            <h3 style={h3Style}>Lock</h3>
+            <div style={{ ...containerStyle, display: "flex", gap: "var(--spacing-16)", flexWrap: "wrap" }}>
+              <div style={itemStyle}>
+                <ButtonBlock bgColor="color01" />
+                <span style={badgeStyle}>color01</span>
+              </div>
+              <div style={itemStyle}>
+                <ButtonBlock bgColor="color02" />
+                <span style={badgeStyle}>color02</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr className="ds-divider" />
+
+      {/* ========== Seção 2: Mercados ========== */}
+      <section className="ds-section">
+        <h2 className="ds-section__title">Mercados</h2>
+        <p className="ds-section__subtitle">
+          Composições de botões de odd para exibição de mercados de apostas.
+          Clique nos botões para ver o estado selecionado.
+        </p>
+
+        <div>
+          <h3 style={h3Style}>Tipos de mercado</h3>
+          <div style={{ ...containerStyle, display: "flex", flexDirection: "column", gap: "var(--spacing-16)" }}>
+            <div>
+              <p style={labelStyle}>1x2 Tradicional</p>
+              <OddsMercados type="1x2-tradicional" interactive />
+            </div>
+            <div>
+              <p style={labelStyle}>1x2</p>
+              <OddsMercados type="1x2" interactive />
+            </div>
+            <div>
+              <p style={labelStyle}>Dupla Chance</p>
+              <OddsMercados type="duplaChance" interactive />
+            </div>
+            <div>
+              <p style={labelStyle}>Sim / Não</p>
+              <OddsMercados type="sim/nao" interactive />
+            </div>
+            <div>
+              <p style={labelStyle}>Over / Under</p>
+              <OddsMercados type="overUnder" interactive />
+            </div>
+            <div>
+              <p style={labelStyle}>Combinada</p>
+              <OddsMercados type="combinada" oddValue="4.50x" totalSelections={4} interactive />
+            </div>
+            <div>
+              <p style={labelStyle}>Escadinha</p>
+              <OddsMercados type="escadinha" interactive />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ButtonsContent() {
+  const h3Style = { fontSize: "var(--font-size-16)", fontWeight: "var(--font-weight-bold)", color: "var(--text-01)", marginBottom: "var(--spacing-12)" } as const;
+  const labelStyle = { fontSize: "var(--font-size-14)", fontWeight: "var(--font-weight-bold)", color: "var(--text-02)", marginBottom: "var(--spacing-8)" } as const;
+  const containerStyle = { background: "var(--layer-01)", padding: "var(--spacing-24)", borderRadius: "var(--spacing-12)" } as const;
+  const rowStyle = { display: "flex", gap: "var(--spacing-24)", flexWrap: "wrap", alignItems: "flex-end" } as const;
+  const badgeStyle = { fontSize: "var(--font-size-10)", color: "var(--text-02)", marginTop: "var(--spacing-4)", display: "block", textAlign: "center", fontFamily: "var(--mono-font)" } as const;
+  const itemStyle = { display: "flex", flexDirection: "column", alignItems: "center" } as const;
+
+  return (
+    <>
+      {/* Seção 1: Sem ícone */}
+      <section className="ds-section">
+        <h2 className="ds-section__title">Botões</h2>
+        <p className="ds-section__subtitle">
+          Botão genérico reutilizável com 4 tipos visuais, 2 tamanhos,
+          suporte a ícone à esquerda e seta à direita.
+        </p>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-32)" }}>
+          <div>
+            <h3 style={h3Style}>Sem ícone, sem arrow</h3>
+            <div style={{ ...containerStyle, display: "flex", flexDirection: "column", gap: "var(--spacing-16)" }}>
+              <div>
+                <p style={labelStyle}>Primary</p>
+                <div style={rowStyle}>
+                  <div style={itemStyle}><Button type="primary" size="40" /><span style={badgeStyle}>size 40</span></div>
+                  <div style={itemStyle}><Button type="primary" size="32" /><span style={badgeStyle}>size 32</span></div>
+                </div>
+              </div>
+              <div>
+                <p style={labelStyle}>Secondary</p>
+                <div style={rowStyle}>
+                  <div style={itemStyle}><Button type="secondary" size="40" /><span style={badgeStyle}>size 40</span></div>
+                  <div style={itemStyle}><Button type="secondary" size="32" /><span style={badgeStyle}>size 32</span></div>
+                </div>
+              </div>
+              <div>
+                <p style={labelStyle}>Flat</p>
+                <div style={rowStyle}>
+                  <div style={itemStyle}><Button type="flat" size="40" /><span style={badgeStyle}>size 40</span></div>
+                  <div style={itemStyle}><Button type="flat" size="32" /><span style={badgeStyle}>size 32</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 style={h3Style}>Sem ícone, com arrow</h3>
+            <div style={{ ...containerStyle, display: "flex", flexDirection: "column", gap: "var(--spacing-16)" }}>
+              <div>
+                <p style={labelStyle}>Primary</p>
+                <div style={rowStyle}>
+                  <div style={itemStyle}><Button type="primary" size="40" arrow /><span style={badgeStyle}>size 40</span></div>
+                  <div style={itemStyle}><Button type="primary" size="32" arrow /><span style={badgeStyle}>size 32</span></div>
+                </div>
+              </div>
+              <div>
+                <p style={labelStyle}>Secondary</p>
+                <div style={rowStyle}>
+                  <div style={itemStyle}><Button type="secondary" size="40" arrow /><span style={badgeStyle}>size 40</span></div>
+                  <div style={itemStyle}><Button type="secondary" size="32" arrow /><span style={badgeStyle}>size 32</span></div>
+                </div>
+              </div>
+              <div>
+                <p style={labelStyle}>Flat</p>
+                <div style={rowStyle}>
+                  <div style={itemStyle}><Button type="flat" size="40" arrow /><span style={badgeStyle}>size 40</span></div>
+                  <div style={itemStyle}><Button type="flat" size="32" arrow /><span style={badgeStyle}>size 32</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 style={h3Style}>Com ícone e arrow</h3>
+            <div style={{ ...containerStyle, display: "flex", flexDirection: "column", gap: "var(--spacing-16)" }}>
+              <div>
+                <p style={labelStyle}>Primary</p>
+                <div style={rowStyle}>
+                  <div style={itemStyle}><Button type="primary" size="40" icon arrow /><span style={badgeStyle}>size 40</span></div>
+                  <div style={itemStyle}><Button type="primary" size="32" icon arrow /><span style={badgeStyle}>size 32</span></div>
+                </div>
+              </div>
+              <div>
+                <p style={labelStyle}>Secondary</p>
+                <div style={rowStyle}>
+                  <div style={itemStyle}><Button type="secondary" size="40" icon arrow /><span style={badgeStyle}>size 40</span></div>
+                  <div style={itemStyle}><Button type="secondary" size="32" icon arrow /><span style={badgeStyle}>size 32</span></div>
+                </div>
+              </div>
+              <div>
+                <p style={labelStyle}>Flat</p>
+                <div style={rowStyle}>
+                  <div style={itemStyle}><Button type="flat" size="40" icon arrow /><span style={badgeStyle}>size 40</span></div>
+                  <div style={itemStyle}><Button type="flat" size="32" icon arrow /><span style={badgeStyle}>size 32</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 style={h3Style}>Com ícone, sem arrow</h3>
+            <div style={{ ...containerStyle, display: "flex", flexDirection: "column", gap: "var(--spacing-16)" }}>
+              <div>
+                <p style={labelStyle}>Primary</p>
+                <div style={rowStyle}>
+                  <div style={itemStyle}><Button type="primary" size="40" icon /><span style={badgeStyle}>size 40</span></div>
+                  <div style={itemStyle}><Button type="primary" size="32" icon /><span style={badgeStyle}>size 32</span></div>
+                </div>
+              </div>
+              <div>
+                <p style={labelStyle}>Secondary</p>
+                <div style={rowStyle}>
+                  <div style={itemStyle}><Button type="secondary" size="40" icon /><span style={badgeStyle}>size 40</span></div>
+                  <div style={itemStyle}><Button type="secondary" size="32" icon /><span style={badgeStyle}>size 32</span></div>
+                </div>
+              </div>
+              <div>
+                <p style={labelStyle}>Flat</p>
+                <div style={rowStyle}>
+                  <div style={itemStyle}><Button type="flat" size="40" icon /><span style={badgeStyle}>size 40</span></div>
+                  <div style={itemStyle}><Button type="flat" size="32" icon /><span style={badgeStyle}>size 32</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr className="ds-divider" />
+
+      {/* Promo Ativa */}
+      <section className="ds-section">
+        <h2 className="ds-section__title">Promo Ativa</h2>
+        <p className="ds-section__subtitle">
+          Botão promocional com gradiente laranja/rosa, seção interna
+          com gradiente primary e área de mensagem.
+        </p>
+
+        <div style={{ ...containerStyle, display: "flex", gap: "var(--spacing-24)", flexWrap: "wrap", alignItems: "flex-end" }}>
+          <div style={itemStyle}>
+            <Button type="promo-ativa" size="40" icon />
+            <span style={badgeStyle}>size 40</span>
+          </div>
+          <div style={itemStyle}>
+            <Button type="promo-ativa" size="32" icon />
+            <span style={badgeStyle}>size 32</span>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ComponentsTab() {
+  const [activeComponent, setActiveComponent] = useState<ComponentId>("button-odds");
+
+  return (
+    <div style={{ display: "flex", gap: "var(--spacing-48)", alignItems: "flex-start" }}>
+      <nav style={{
+        position: "sticky",
+        top: 140,
+        width: 200,
+        flexShrink: 0,
+        display: "flex",
+        flexDirection: "column",
+        borderLeft: "1px solid var(--border-02)",
+      }}>
+        {COMPONENT_LIST.map((comp) => {
+          const isActive = activeComponent === comp.id;
+          return (
+            <button
+              key={comp.id}
+              onClick={() => setActiveComponent(comp.id)}
+              style={{
+                position: "relative",
+                background: "none",
+                border: "none",
+                borderLeft: isActive ? "2px solid var(--layer-gradient-01)" : "2px solid transparent",
+                marginLeft: -1,
+                padding: "var(--spacing-8) var(--spacing-16)",
+                fontSize: "var(--font-size-14)",
+                fontWeight: isActive ? "var(--font-weight-bold)" : "var(--font-weight-regular)",
+                color: isActive ? "var(--text-01)" : "var(--text-02)",
+                fontFamily: "inherit",
+                cursor: "pointer",
+                textAlign: "left",
+                transition: "color 0.15s",
+              }}
+            >
+              {comp.label}
+            </button>
+          );
+        })}
+      </nav>
+
+      <div style={{ flex: 1, minWidth: 0 }}>
+        {activeComponent === "button-odds" && <ButtonOddsContent />}
+        {activeComponent === "buttons" && <ButtonsContent />}
+      </div>
+    </div>
+  );
+}
+
+/* ==========================================================
    PAGE
    ========================================================== */
 
@@ -691,6 +1078,7 @@ export default function DesignSystem() {
         {activeTab === "typography" && <TypographyTab />}
         {activeTab === "spacing" && <SpacingTab />}
         {activeTab === "tokens" && <TokensTab />}
+        {activeTab === "components" && <ComponentsTab />}
       </div>
     </>
   );

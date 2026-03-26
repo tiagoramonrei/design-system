@@ -1,0 +1,86 @@
+/* ============================================================
+   ButtonOnlyOdds
+   Botão de odd sem nome de time, apenas valores.
+   Props: bgColor (color01 | color02 | selected), boost (boolean)
+   ============================================================ */
+
+.button-only-odds {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 124px;
+  padding: 0 var(--spacing-8);
+  border: none;
+  border-radius: var(--spacing-8);
+  background: var(--button-odds-01);
+  color: var(--text-01);
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* --- bgColor: color02 --- */
+
+.button-only-odds--color02 {
+  background: var(--button-odds-02);
+}
+
+/* --- bgColor: selected --- */
+
+.button-only-odds--selected {
+  border: 1px solid var(--button-odds-selected-01);
+  background-image:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--button-odds-selected-01) 16%, transparent) 0%,
+      color-mix(in srgb, var(--button-odds-selected-02) 16%, transparent) 100%
+    ),
+    linear-gradient(90deg, var(--lightdark-850) 0%, var(--lightdark-850) 100%);
+  color: var(--text-on-color-white);
+}
+
+/* --- inner elements --- */
+
+.button-only-odds__numbers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-only-odds__boost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-only-odds__boost--active {
+  gap: var(--spacing-8);
+}
+
+.button-only-odds__old-value {
+  font-size: var(--font-size-10);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: line-through;
+}
+
+.button-only-odds__icon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.button-only-odds__value {
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+}

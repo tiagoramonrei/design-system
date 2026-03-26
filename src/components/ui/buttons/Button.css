@@ -1,0 +1,176 @@
+/* ============================================================
+   Button
+   Botão genérico reutilizável.
+   Props: type (primary | secondary | flat | promo-ativa),
+          size (40 | 32), arrow, icon
+   ============================================================ */
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-family: inherit;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.5;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---- sizes ---- */
+
+.btn--40 {
+  height: 40px;
+  padding: 0 var(--spacing-20);
+  font-size: var(--font-size-12);
+  gap: var(--spacing-8);
+}
+
+.btn--32 {
+  height: 32px;
+  padding: 0 var(--spacing-16);
+  font-size: var(--font-size-10);
+  gap: 8px;
+}
+
+/* arrow adjusts padding */
+
+.btn--40.btn--has-arrow {
+  padding-left: var(--spacing-20);
+  padding-right: var(--spacing-12);
+}
+
+.btn--32.btn--has-arrow {
+  padding-left: var(--spacing-16);
+  padding-right: var(--spacing-8);
+}
+
+/* ---- type: primary ---- */
+
+.btn--primary {
+  background-image: linear-gradient(25deg, var(--layer-gradient-02) 0%, var(--layer-gradient-01) 100%);
+  color: var(--text-on-color-white);
+  border-radius: var(--spacing-160);
+}
+
+/* ---- type: secondary ---- */
+
+.btn--secondary {
+  background: transparent;
+  color: var(--text-03);
+  border-radius: 100px;
+  position: relative;
+}
+
+.btn--secondary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--layer-gradient-03), var(--layer-gradient-04));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ---- type: flat ---- */
+
+.btn--flat {
+  background: transparent;
+  color: var(--text-03);
+  border-radius: 100px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* flat without icon/arrow has no gap */
+.btn--flat:not(.btn--has-arrow):not(.btn--has-icon) {
+  gap: 0;
+}
+
+/* ---- type: promo-ativa ---- */
+
+.btn--promo-ativa {
+  background-image: linear-gradient(22deg, var(--layer-gradient-03) 50%, var(--layer-gradient-04) 84%);
+  color: var(--text-on-color-white);
+  border-radius: var(--spacing-160);
+  gap: var(--spacing-8);
+  padding-left: 0;
+}
+
+.btn--promo-ativa.btn--40 {
+  padding-left: 0;
+  padding-right: var(--spacing-20);
+}
+
+.btn--promo-ativa.btn--32 {
+  padding-left: 0;
+  padding-right: var(--spacing-16);
+}
+
+.btn__promo-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  height: 100%;
+  border-radius: var(--spacing-160);
+  background-image: linear-gradient(22deg, var(--layer-gradient-02) 0%, var(--layer-gradient-01) 100%);
+  color: var(--text-on-color-white);
+}
+
+.btn--40 .btn__promo-inner {
+  padding: 0 var(--spacing-20);
+}
+
+.btn--32 .btn__promo-inner {
+  padding: 0 var(--spacing-16);
+}
+
+.btn__promo-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: var(--font-size-10);
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--text-inverse);
+}
+
+.btn__promo-msg-label {
+  font-weight: var(--font-weight-regular);
+}
+
+.btn__promo-msg-value {
+  font-weight: var(--font-weight-bold);
+}
+
+/* ---- icons ---- */
+
+.btn__icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn__arrow {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transform: rotate(-90deg);
+}
